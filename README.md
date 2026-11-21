@@ -8,10 +8,10 @@ Webanwendung zur Verwaltung von Bildungseinrichtungen, die das Versenden von SMS
 AGAES ist mehrbenutzerfähig. Jeder Benutzer besitzt einen Benutzernamen und ein Passwort zur Anmeldung und kann eine oder mehrere Rollen innehaben.
 
 ## Technologien
-Backend: PHP
-Frontend: HTML, CSS, JAVASCRIPT
-Dashboard: AdminLTE
-Datenbank: MySQL
+Backend: PHP |
+Frontend: HTML, CSS, JAVASCRIPT |
+Dashboard: AdminLTE |
+Datenbank: MySQL |
 
 ## Erste Schritte
 Wampserver installieren, falls noch nicht installiert

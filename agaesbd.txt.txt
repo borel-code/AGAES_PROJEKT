@@ -1,0 +1,269 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.3
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : sam. 21 nov. 2026 à 14:40
+-- Version du serveur : 8.4.7
+-- Version de PHP : 8.3.28
+
+
+--
+-- Base de données : `agaesbd`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `anne`
+--
+
+DROP TABLE IF EXISTS `anne`;
+CREATE TABLE IF NOT EXISTS `anne` (
+  `idannee` int NOT NULL AUTO_INCREMENT,
+  `annee` varchar(15) NOT NULL,
+  PRIMARY KEY (`idannee`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `anne`
+--
+
+INSERT INTO `anne` (`idannee`, `annee`) VALUES
+(1, '2026/2027');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etabl`
+--
+
+DROP TABLE IF EXISTS `etabl`;
+CREATE TABLE IF NOT EXISTS `etabl` (
+  `idetabl` int NOT NULL AUTO_INCREMENT,
+  `nometab` varchar(40) NOT NULL,
+  `numetab` varchar(60) NOT NULL,
+  `villetab` varchar(30) NOT NULL,
+  `qtieretab` varchar(30) NOT NULL,
+  `nomadm` varchar(30) NOT NULL,
+  `numadm` varchar(60) NOT NULL,
+  `lien` varchar(80) NOT NULL,
+  `lienparent` varchar(80) NOT NULL,
+  `user` varchar(30) NOT NULL,
+  `motp` varchar(30) NOT NULL,
+  `base` varchar(50) NOT NULL,
+  PRIMARY KEY (`idetabl`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `etabl`
+--
+
+INSERT INTO `etabl` (`idetabl`, `nometab`, `numetab`, `villetab`, `qtieretab`, `nomadm`, `numadm`, `lien`, `lienparent`, `user`, `motp`, `base`) VALUES
+(1, 'KKKUOI', '98888', 'JHJJKLJK', 'NKJJHJH', 'YIJJJ', '8909988', 'LOG', 'PLOG', 'kam', 'kam', ''),
+(2, 'AMOI', '445656', 'FGRGR', 'GRGRT', 'GRHJ', '45557', 'AMOI', 'AMOIA', '4444', '4444', ''),
+(3, 'NNNNNNN', '4455', 'VVV', 'EERR', 'RRT', '54455', 'NN', 'NNP', 'NN', 'NN', ''),
+(4, 'NNNNNNN', '4455', 'VVV', 'EERR', 'RRT', '54455', 'NN', 'NNP', 'NN', 'NN', ''),
+(5, 'NNNNNNN', '4455', 'VVV', 'EERR', 'RRT', '54455', 'NN', 'NNP', 'NN', 'NN', ''),
+(6, 'NNNNNNN', '4455', 'VVV', 'EERR', 'RRT', '54455', 'NN', 'NNP', 'NN', 'NN', ''),
+(7, 'NNNNNNN', '4455', 'VVV', 'EERR', 'RRT', '54455', 'NN', 'NNP', 'NN', 'NN', ''),
+(8, 'NNNNNNN', '4455', 'VVV', 'EERR', 'RRT', '54455', 'NN', 'NNP', 'NN', 'NN', ''),
+(17, 'C. KTAB', '76677', 'douala', 'VILLAGE', 'HDJD', '656753457', 'KTAB', 'KTABP', 'KTAB', 'KTAB', ''),
+(16, 'C. KTAB', '674494384', 'douala', 'VILLAGE', 'HDJD', '674494384', 'KTAB', 'KTABP', 'KTAB', 'KTAB', ''),
+(15, 'SS', '35545', 'JKJKJLKJK', 'BBHHJ', 'HHKJJK', '7878787', 'SS', 'SSP', 'SS', 'SS', ''),
+(14, 'AAB', '3444', 'SDFFDFGG', 'GGH', 'DFT', '4566', 'AAB', 'AABP', 'AA', 'AA', ''),
+(21, 'C. KTAB', '76677', 'douala', 'VILLAGE', 'HDJD', '677', 'KTAB', 'KTABP', 'KTAB', 'KTAB', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etablier`
+--
+
+DROP TABLE IF EXISTS `etablier`;
+CREATE TABLE IF NOT EXISTS `etablier` (
+  `idetablier` int NOT NULL AUTO_INCREMENT,
+  `idetabl` int NOT NULL,
+  `nometab` varchar(40) NOT NULL,
+  `numetab` varchar(60) NOT NULL,
+  `villetab` varchar(30) NOT NULL,
+  `qtieretab` varchar(30) NOT NULL,
+  `nomadm` varchar(30) NOT NULL,
+  `numadm` varchar(60) NOT NULL,
+  `lien` varchar(80) NOT NULL,
+  `lienparent` varchar(80) NOT NULL,
+  `user` varchar(30) NOT NULL,
+  `motp` varchar(30) NOT NULL,
+  `base` varchar(50) NOT NULL,
+  `initial` varchar(30) NOT NULL,
+  PRIMARY KEY (`idetablier`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `etablier`
+--
+
+INSERT INTO `etablier` (`idetablier`, `idetabl`, `nometab`, `numetab`, `villetab`, `qtieretab`, `nomadm`, `numadm`, `lien`, `lienparent`, `user`, `motp`, `base`, `initial`) VALUES
+(19, 16, 'C. KTAB', '674494384', 'douala', 'VILLAGE', 'HDJD', '674494384', 'KTAB', 'KTABP', 'KTAB', 'KTAB', 'serveurbaseagaes9	', ''),
+(4, 1, 'LOG3', '44555', 'VRV', 'EEFE', 'YIJJJ', ' ', 'LOG3', 'PLOG3', 'kam', 'kam', 'serveurbaseagaes5', ''),
+(3, 1, 'JJJJ', '3455', 'JKK', 'KKKK', 'M . YIJJJ', ' ', 'LOG2', 'PLOG2', 'kam', 'kam', 'serveurbaseagaes4', ''),
+(5, 2, 'AMOI', '445656', 'FGRGR', 'GRGRT', 'GRHJ', '45557', 'AMOI', 'AMOIA', '4444', '4444', 'serveurbaseagaes6', ''),
+(18, 15, 'SS', '35545', 'JKJKJLKJK', 'BBHHJ', 'HHKJJK', '7878787', 'SS', 'SSP', 'SS', 'SS', 'serveurbaseagaes8', ''),
+(17, 14, 'AAB', '3444', 'SDFFDFGG', 'GGH', 'DFT', '4566', 'AAB', 'AABP', 'AA', 'AA', 'serveurbaseagaes6', ''),
+(24, 21, 'C. KTAB', '76677', 'douala', 'VILLAGE', 'HDJD', '677', 'KTAB', 'KTABP', 'KTAB', 'KTAB', 'serveurbaseagaes9', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `inscrit`
+--
+
+DROP TABLE IF EXISTS `inscrit`;
+CREATE TABLE IF NOT EXISTS `inscrit` (
+  `idinscrit` int NOT NULL AUTO_INCREMENT,
+  `cout` decimal(10,2) NOT NULL,
+  `totalavance` decimal(10,2) NOT NULL,
+  `datedeb` varchar(15) NOT NULL,
+  `dateproro` varchar(15) NOT NULL,
+  `idetablier` int NOT NULL,
+  `idleiter` int NOT NULL,
+  `idas` int NOT NULL,
+  PRIMARY KEY (`idinscrit`)
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `inscrit`
+--
+
+INSERT INTO `inscrit` (`idinscrit`, `cout`, `totalavance`, `datedeb`, `dateproro`, `idetablier`, `idleiter`, `idas`) VALUES
+(21, 0.00, 0.00, '2025.07.25', '2025.08.25', 20, 1, 6),
+(3, 0.00, 0.00, '2024.07.18', '2024.08.18', 2, 1, 1),
+(4, 0.00, 0.00, '2024.07.18', '2024.08.18', 3, 1, 2),
+(5, 0.00, 0.00, '2024.07.18', '2024.08.18', 4, 1, 1),
+(20, 0.00, 0.00, '2025.07.24', '2025.08.24', 19, 1, 6),
+(6, 0.00, 0.00, '2024.10.28', '2024.11.28', 5, 1, 5),
+(13, 0.00, 0.00, '2024.10.29', '2024.11.29', 12, 1, 1),
+(14, 0.00, 0.00, '2024.10.29', '2024.11.29', 13, 1, 1),
+(17, 0.00, 0.00, '2024.10.31', '2024.11.31', 16, 1, 1),
+(16, 0.00, 0.00, '2024.10.30', '2024.11.30', 15, 1, 1),
+(15, 0.00, 0.00, '2024.10.29', '2024.11.29', 14, 1, 1),
+(18, 0.00, 0.00, '2024.11.03', '2024.12.03', 17, 1, 1),
+(19, 200000.00, 60000.00, '2024.11.03', '2025.04.03', 18, 1, 5),
+(22, 0.00, 0.00, '2025.07.25', '2025.08.25', 21, 1, 6),
+(23, 0.00, 0.00, '2025.07.25', '2025.08.25', 22, 1, 6),
+(24, 0.00, 0.00, '2025.08.01', '2025.09.01', 23, 1, 6),
+(25, 0.00, 0.00, '2025.08.01', '2025.09.01', 24, 1, 6);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `leiter`
+--
+
+DROP TABLE IF EXISTS `leiter`;
+CREATE TABLE IF NOT EXISTS `leiter` (
+  `idleiter` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(40) NOT NULL,
+  `user` varchar(30) NOT NULL,
+  `mtp` varchar(30) NOT NULL,
+  PRIMARY KEY (`idleiter`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `leiter`
+--
+
+INSERT INTO `leiter` (`idleiter`, `nom`, `user`, `mtp`) VALUES
+(1, 'KAMMOGNE TAMDJO A.B', '16SGES', '16SGES');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `lesannees`
+--
+
+DROP TABLE IF EXISTS `lesannees`;
+CREATE TABLE IF NOT EXISTS `lesannees` (
+  `idas` int NOT NULL AUTO_INCREMENT,
+  `nomas` varchar(15) NOT NULL,
+  `actif` int NOT NULL,
+  PRIMARY KEY (`idas`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `lesannees`
+--
+
+INSERT INTO `lesannees` (`idas`, `nomas`, `actif`) VALUES
+(1, '2020/2021', 0),
+(2, '2021/2022', 0),
+(3, '2022/2023', 0),
+(4, '2023/2024', 0),
+(5, '2024/2025', 0),
+(6, '2025/2026', 0),
+(7, '2026/2027', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `lesbases`
+--
+
+DROP TABLE IF EXISTS `lesbases`;
+CREATE TABLE IF NOT EXISTS `lesbases` (
+  `idlesbases` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(30) NOT NULL,
+  `hostb` varchar(50) NOT NULL,
+  `userb` varchar(50) NOT NULL,
+  `mpb` varchar(50) NOT NULL,
+  `dispo` int NOT NULL,
+  `type` int NOT NULL,
+  PRIMARY KEY (`idlesbases`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `lesbases`
+--
+
+INSERT INTO `lesbases` (`idlesbases`, `nom`, `hostb`, `userb`, `mpb`, `dispo`, `type`) VALUES
+(1, 'serveurbaseagaes1', 'localhost', 'root', '', 1, 2),
+(2, 'serveurbaseagaes2', 'localhost', 'root', '', 1, 2),
+(3, 'serveurbaseagaes3', 'localhost', 'root', '', 1, 2),
+(4, 'serveurbaseagaes4', 'localhost', 'root', '', 1, 2),
+(5, 'serveurbaseagaes5', 'localhost', 'root', '', 1, 2),
+(6, 'serveurbaseagaes6', 'localhost', 'root', '', 1, 2),
+(7, 'serveurbaseagaes7', 'localhost', 'root', '', 1, 2),
+(8, 'serveurbaseagaes8', 'localhost', 'root', '', 1, 1),
+(9, 'serveurbaseagaes9', 'localhost', 'root', '', 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `versement`
+--
+
+DROP TABLE IF EXISTS `versement`;
+CREATE TABLE IF NOT EXISTS `versement` (
+  `idversement` int NOT NULL AUTO_INCREMENT,
+  `idinscrit` int NOT NULL,
+  `datean` varchar(15) NOT NULL,
+  `datepro` varchar(15) NOT NULL,
+  `montant` decimal(10,2) NOT NULL,
+  `idas` int NOT NULL,
+  `mode` int NOT NULL,
+  `date` varchar(15) NOT NULL,
+  `heure` varchar(15) NOT NULL,
+  `idleiter` int NOT NULL,
+  PRIMARY KEY (`idversement`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `versement`
+--
+
+INSERT INTO `versement` (`idversement`, `idinscrit`, `datean`, `datepro`, `montant`, `idas`, `mode`, `date`, `heure`, `idleiter`) VALUES
+(1, 19, '2025.03.23', '2025.03.12', 50000.00, 5, 1, '2025.06.29', '19:48', 1),
+(2, 19, '2025.03.12', '2025.03.23', 10000.00, 5, 1, '2025.06.29', '19:59', 1),
+(3, 19, '2025.03.23', '2025.04.03', 0.00, 5, 1, '2025.06.29', '20:03', 1);
+COMMIT;
+

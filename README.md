@@ -10,6 +10,7 @@ AGAES ist mehrbenutzerfähig. Jeder Benutzer besitzt einen Benutzernamen und ein
 ## Technologien
 Backend: PHP
 Frontend: HTML, CSS, JAVASCRIPT
+Dashboard: AdminLTE
 Datenbank: MySQL
 
 ## Erste Schritte

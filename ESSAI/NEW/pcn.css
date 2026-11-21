@@ -1,0 +1,178 @@
+body{ 	
+-webkit-background-size:cover;	
+min-width:78em;
+ 
+margin-top:1em;
+margin-right:1px;
+margin-left:1.5px;
+
+}
+
+fieldset{
+	border:0px;
+}
+
+#form{
+	
+	font-family:Algeria;
+	font-size:20px;
+	font-weight:bold;
+	width:48%;
+	margin-top:100px;
+	margin-bottom:0em;
+	margin-left:387px;
+	margin-right:2px;
+
+	border-radius:2em 2em 2em 2em;
+	background-image: url('arr2.gif');
+	float:auto;
+	display:block;
+}
+
+#h2{
+	font-family:new times roman;
+	font-style: italic;
+	margin-top:100px;
+}
+
+table{
+	border-radius: 34px;
+	margin-left:50px;
+	font-family:Lucida Handwriting;
+	border:0px;
+	
+}
+
+table label:hover{
+	color:red;
+
+}
+
+label{
+	width:200px;
+	display:block;
+	display:inline;
+	float:left;
+	margin-left: 70px;
+	transition-property: color;
+	transition-duration:2s;
+}
+
+
+label:hover{color: red;}
+
+table select{
+	border-radius:5px;
+	float:rigth;
+	height:25px;
+	font-size:18px;
+	font-family:Harrington;
+	width: 200px;
+}
+
+.positionIn,
+select[name="select"],
+select[name="niveau"],
+select[name="evaluation"],
+select[name="coe"],
+select[name="clas"],
+select[name="niv"],
+select[name="clan"],
+select[name="nomeco"],
+select[name="an"],
+input[name="mat"],
+input[name="nom"],
+input[name="pre"],
+input[name="clas"],
+input[name="mtnt"],input[name="dat"],input[name="dat1"],
+select[name="ann"]
+{
+	border-radius:5px;
+	transform:translate(60px);
+	float:rigth;
+	height:28px;
+	font-size:18px;
+	width:230px;
+	font-family:Times New Roman;
+}
+
+.positionInTab{
+	border-radius:5px;
+	float:rigth;
+	height:23px;
+	font-size:18px;
+	font-family:Harrington;
+	width:200px;
+}
+
+
+
+
+
+
+
+
+ 
+
+
+.positionIn,
+ select[name="mon"]
+ 
+{
+	border-radius:5px;
+	transform:translate(50px);
+	float:rigth;
+	height:28px;
+	font-size:28px;
+	width:530px;
+	font-family:Times New Roman;
+}
+
+.positionInTab{
+	border-radius:5px;
+	float:rigth;
+	height:23px;
+	font-size:18px;
+	font-family:Harrington;
+	width:200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+input[name="send"],input[name="reset"]{
+	text-align:center;
+	font-family:Ravie;
+	margin-left:20%;
+	border-radius:15px;
+	height:50px;
+	width:110px;
+}

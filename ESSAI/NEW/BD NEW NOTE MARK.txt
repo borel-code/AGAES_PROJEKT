@@ -1,0 +1,362 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Serveur: localhost
+-- Généré le : Jeu 10 Juillet 2025 à 15:17
+-- Version du serveur: 5.1.36
+-- Version de PHP: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Base de données: `mysql`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `markgrouptrim1`
+--
+
+CREATE TABLE IF NOT EXISTS `markgrouptrim1` (
+  `idmarkgp1` int(255) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(30) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `anelev` varchar(15) NOT NULL,
+  `notegroup` decimal(10,2) NOT NULL,
+  `coef` varchar(4) NOT NULL,
+  `nc` decimal(10,2) NOT NULL,
+  `idgroup` int(11) NOT NULL,
+  `rg` varchar(4) NOT NULL,
+  `mcltrim` decimal(10,2) NOT NULL,
+  `mintrim` decimal(10,2) NOT NULL,
+  `maxtrim` decimal(10,2) NOT NULL,
+  `cpse` int(11) NOT NULL,
+  `adm` int(11) NOT NULL,
+  `pctrim` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`idmarkgp1`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `markgrouptrim1`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `markgrouptrim2`
+--
+
+CREATE TABLE IF NOT EXISTS `markgrouptrim2` (
+  `idmarkgp2` int(255) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(30) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `anelev` varchar(15) NOT NULL,
+  `notegroup` decimal(10,2) NOT NULL,
+  `coef` varchar(4) NOT NULL,
+  `nc` decimal(10,2) NOT NULL,
+  `idgroup` int(11) NOT NULL,
+  `rg` varchar(4) NOT NULL,
+  `mcltrim` decimal(10,2) NOT NULL,
+  `mintrim` decimal(10,2) NOT NULL,
+  `maxtrim` decimal(10,2) NOT NULL,
+  `cpse` int(11) NOT NULL,
+  `adm` int(11) NOT NULL,
+  `pctrim` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`idmarkgp2`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `markgrouptrim2`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `markgrouptrim3`
+--
+
+CREATE TABLE IF NOT EXISTS `markgrouptrim3` (
+  `idmarkgp3` int(255) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(30) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `anelev` varchar(15) NOT NULL,
+  `notegroup` decimal(10,2) NOT NULL,
+  `coef` varchar(4) NOT NULL,
+  `nc` decimal(10,2) NOT NULL,
+  `idgroup` int(11) NOT NULL,
+  `rg` varchar(4) NOT NULL,
+  `mcltrim` decimal(10,2) NOT NULL,
+  `mintrim` decimal(10,2) NOT NULL,
+  `maxtrim` decimal(10,2) NOT NULL,
+  `cpse` int(11) NOT NULL,
+  `adm` int(11) NOT NULL,
+  `pctrim` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`idmarkgp3`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `markgrouptrim3`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `markmoyan`
+--
+
+CREATE TABLE IF NOT EXISTS `markmoyan` (
+  `idmarkmoyan` int(255) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(30) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `anelev` varchar(15) NOT NULL,
+  `moyan` decimal(10,2) NOT NULL,
+  `rgan` varchar(4) NOT NULL,
+  `mclan` decimal(10,2) NOT NULL,
+  `minan` decimal(10,2) NOT NULL,
+  `maxan` decimal(10,2) NOT NULL,
+  `cpse` int(11) NOT NULL,
+  `adm` int(11) NOT NULL,
+  `pctan` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`idmarkmoyan`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `markmoyan`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `markmoytrim1`
+--
+
+CREATE TABLE IF NOT EXISTS `markmoytrim1` (
+  `idmarkmoy1` int(255) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(30) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `anelev` varchar(15) NOT NULL,
+  `moy1` decimal(10,2) NOT NULL,
+  `moy2` decimal(10,2) NOT NULL,
+  `moy3` decimal(10,2) NOT NULL,
+  `moytrim` decimal(10,2) NOT NULL,
+  `rg1` varchar(4) NOT NULL,
+  `rg2` varchar(4) NOT NULL,
+  `rg3` varchar(4) NOT NULL,
+  `rgtrim` varchar(4) NOT NULL,
+  `mcltrim` decimal(10,2) NOT NULL,
+  `mintrim` decimal(10,2) NOT NULL,
+  `maxtrim` decimal(10,2) NOT NULL,
+  `cpse` int(11) NOT NULL,
+  `adm` int(11) NOT NULL,
+  `pctrim` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`idmarkmoy1`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `markmoytrim1`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `markmoytrim2`
+--
+
+CREATE TABLE IF NOT EXISTS `markmoytrim2` (
+  `idmarkmoy2` int(255) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(30) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `anelev` varchar(15) NOT NULL,
+  `moy1` decimal(10,2) NOT NULL,
+  `moy2` decimal(10,2) NOT NULL,
+  `moy3` decimal(10,2) NOT NULL,
+  `moytrim` decimal(10,2) NOT NULL,
+  `rg1` varchar(4) NOT NULL,
+  `rg2` varchar(4) NOT NULL,
+  `rg3` varchar(4) NOT NULL,
+  `rgtrim` varchar(4) NOT NULL,
+  `mcltrim` decimal(10,2) NOT NULL,
+  `mintrim` decimal(10,2) NOT NULL,
+  `maxtrim` decimal(10,2) NOT NULL,
+  `cpse` int(11) NOT NULL,
+  `adm` int(11) NOT NULL,
+  `pctrim` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`idmarkmoy2`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `markmoytrim2`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `markmoytrim3`
+--
+
+CREATE TABLE IF NOT EXISTS `markmoytrim3` (
+  `idmarkmoy3` int(255) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(30) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `anelev` varchar(15) NOT NULL,
+  `moy1` decimal(10,2) NOT NULL,
+  `moy2` decimal(10,2) NOT NULL,
+  `moy3` decimal(10,2) NOT NULL,
+  `moytrim` decimal(10,2) NOT NULL,
+  `rg1` varchar(4) NOT NULL,
+  `rg2` varchar(4) NOT NULL,
+  `rg3` varchar(4) NOT NULL,
+  `rgtrim` varchar(4) NOT NULL,
+  `mcltrim` decimal(10,2) NOT NULL,
+  `mintrim` decimal(10,2) NOT NULL,
+  `maxtrim` decimal(10,2) NOT NULL,
+  `cpse` int(11) NOT NULL,
+  `adm` int(11) NOT NULL,
+  `pctrim` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`idmarkmoy3`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `markmoytrim3`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `marktrim1`
+--
+
+CREATE TABLE IF NOT EXISTS `marktrim1` (
+  `idmark1` int(255) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(30) NOT NULL,
+  `anelev` varchar(15) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `idmat` int(30) NOT NULL,
+  `idgp` int(11) NOT NULL,
+  `mark1` decimal(10,2) NOT NULL,
+  `mark2` decimal(10,2) NOT NULL,
+  `mark3` decimal(10,2) NOT NULL,
+  `notetrim` decimal(10,2) NOT NULL,
+  `coef` decimal(10,2) NOT NULL,
+  `notrimcoef` decimal(10,2) NOT NULL,
+  `m1c` int(11) NOT NULL,
+  `m2c` int(11) NOT NULL,
+  `m3c` int(11) NOT NULL,
+  `rg1` int(11) NOT NULL,
+  `rg2` int(11) NOT NULL,
+  `rg3` int(11) NOT NULL,
+  `rgtrim` int(11) NOT NULL,
+  `ok1` int(11) NOT NULL,
+  `ok2` int(11) NOT NULL,
+  `ok3` int(11) NOT NULL,
+  `oktrim` int(11) NOT NULL,
+  `mcltrim` decimal(10,2) NOT NULL,
+  `mintrim` decimal(10,2) NOT NULL,
+  `maxtrim` decimal(10,2) NOT NULL,
+  `cpse` int(11) NOT NULL,
+  `adm` int(11) NOT NULL,
+  `pctrim` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`idmark1`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `marktrim1`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `marktrim2`
+--
+
+CREATE TABLE IF NOT EXISTS `marktrim2` (
+  `idmark2` int(255) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(30) NOT NULL,
+  `anelev` varchar(15) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `idmat` int(30) NOT NULL,
+  `idgp` int(11) NOT NULL,
+  `mark1` decimal(10,2) NOT NULL,
+  `mark2` decimal(10,2) NOT NULL,
+  `mark3` decimal(10,2) NOT NULL,
+  `notetrim` decimal(10,2) NOT NULL,
+  `coef` decimal(10,2) NOT NULL,
+  `notrimcoef` decimal(10,2) NOT NULL,
+  `m1c` int(11) NOT NULL,
+  `m2c` int(11) NOT NULL,
+  `m3c` int(11) NOT NULL,
+  `rg1` int(11) NOT NULL,
+  `rg2` int(11) NOT NULL,
+  `rg3` int(11) NOT NULL,
+  `rgtrim` int(11) NOT NULL,
+  `ok1` int(11) NOT NULL,
+  `ok2` int(11) NOT NULL,
+  `ok3` int(11) NOT NULL,
+  `oktrim` int(11) NOT NULL,
+  `mcltrim` decimal(10,2) NOT NULL,
+  `mintrim` decimal(10,2) NOT NULL,
+  `maxtrim` decimal(10,2) NOT NULL,
+  `cpse` int(11) NOT NULL,
+  `adm` int(11) NOT NULL,
+  `pctrim` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`idmark2`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `marktrim2`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `marktrim3`
+--
+
+CREATE TABLE IF NOT EXISTS `marktrim3` (
+  `idmark3` int(255) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(30) NOT NULL,
+  `anelev` varchar(15) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `idmat` int(30) NOT NULL,
+  `mark1` decimal(10,2) NOT NULL,
+  `mark2` decimal(10,2) NOT NULL,
+  `mark3` decimal(10,2) NOT NULL,
+  `notetrim` decimal(10,2) NOT NULL,
+  `coef` decimal(10,2) NOT NULL,
+  `notrimcoef` decimal(10,2) NOT NULL,
+  `m1c` int(11) NOT NULL,
+  `m2c` int(11) NOT NULL,
+  `m3c` int(11) NOT NULL,
+  `rg1` int(11) NOT NULL,
+  `rg2` int(11) NOT NULL,
+  `rg3` int(11) NOT NULL,
+  `rgtrim` int(11) NOT NULL,
+  `ok1` int(11) NOT NULL,
+  `ok2` int(11) NOT NULL,
+  `ok3` int(11) NOT NULL,
+  `oktrim` int(11) NOT NULL,
+  `mcltrim` decimal(10,2) NOT NULL,
+  `mintrim` decimal(10,2) NOT NULL,
+  `maxtrim` decimal(10,2) NOT NULL,
+  `cpse` int(11) NOT NULL,
+  `adm` int(11) NOT NULL,
+  `pctrim` decimal(10,2) NOT NULL,
+  `idgp` int(11) NOT NULL,
+  PRIMARY KEY (`idmark3`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `marktrim3`
+--
+

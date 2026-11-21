@@ -1,0 +1,80 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Serveur: localhost
+-- Généré le : Mar 24 Septembre 2024 à 20:38
+-- Version du serveur: 5.1.36
+-- Version de PHP: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Base de données: `serveurbaseagaes4`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `competence`
+--
+
+CREATE TABLE IF NOT EXISTS `competence` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `intitule` varchar(500) NOT NULL,
+  `idmat` int(11) NOT NULL,
+  `niveauclas` varchar(11) NOT NULL,
+  `trimestre` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `competence`
+--
+ 
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `competenceclas`
+--
+
+CREATE TABLE IF NOT EXISTS `competenceclas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idcomp` int(11) NOT NULL,
+  `idclas` int(11) NOT NULL,
+  `anens` varchar(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+
+--
+-- Contenu de la table `competenceclas`
+--
+ 
+
+
+
+
+--
+-- Structure de la table `notenew`
+--
+
+CREATE TABLE IF NOT EXISTS `notenew` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `matricule` varchar(30) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `note` decimal(10,2) NOT NULL,
+  `matiere` int(11) NOT NULL,
+  `idcomp` int(11) NOT NULL,
+  `numero` int(10) NOT NULL,
+  `typeval` varchar(11) NOT NULL,
+  `trimestre` int(11) NOT NULL,
+  `rgeval` varchar(4) NOT NULL,
+  `anens` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `notenew`
+--
+

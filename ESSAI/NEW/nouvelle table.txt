@@ -1,0 +1,61 @@
+
+//ajouter temps ds la table enseignant à la fin
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS `enseigmatclasse` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idmat` int(11) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `idens` int(11) NOT NULL,
+  `anens` varchar(11) NOT NULL,
+  `titulaire` int(11) NOT NULL,
+  `sup` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+)
+
+CREATE TABLE IF NOT EXISTS `enseigsalaire` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idens` int(11) NOT NULL,
+  `type` int(11) NOT NULL,
+  `valeur` int(11) NOT NULL,
+  `idmonnaie` int(11) NOT NULL,
+  `anens` varchar(11) NOT NULL,
+  `sup` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+)
+
+CREATE TABLE IF NOT EXISTS `enseignantanc` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nomens` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `prenomens` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `id_etab` int(11) NOT NULL,
+  `telens` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `discipline` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `mtpasse` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `nivens` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `niveau` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `anens` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `genre` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `datens` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `cni` varchar(50) NOT NULL,
+  `titulaire` int(11) NOT NULL,
+  `salaire` int(11) NOT NULL,
+  `taux` int(11) NOT NULL,
+  `supp` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+)
+
+
+
+CREATE TABLE IF NOT EXISTS `devise` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(10) NOT NULL,
+  `prio` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+)
+
+
+

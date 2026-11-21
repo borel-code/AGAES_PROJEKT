@@ -1,0 +1,105 @@
+﻿ 
+<?php 
+session_cache_limiter('private_no_expire,must-revalidate');session_start(); 
+require '../lienC2.php';
+$_SESSION['mitteilung']= " "; 
+$_SESSION['idENS']=" "; 
+$_SESSION['nom']=" "; 
+ 
+$_SESSION['annee']=" "; 
+$_SESSION['mtp']=" "; 
+if(date('Y-m-d H:i:s') ==date('Y-m-d H:i:s', strtotime('+1 hour'))){
+  echo "oui";
+};  
+     ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> </title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="../https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <h5>Connexion | Enseignants</h5>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">   </p>
+
+      <form action="menuens.php" method="post">
+       
+        <div class="input-group mb-3">
+          <input type="password" name="password" class="form-control" placeholder="Mot de passe">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <select name="an"   class="form-control" >  
+          <?php 
+          $v="SELECT * FROM lesannees ORDER BY idas DESC";
+          $reponse = $bddt->query($v);
+          while ($donnees = $reponse->fetch()){                            
+          echo "<option value='".$donnees['nomas']."'>".$donnees['nomas']."</option>" ; 
+          } 
+           $reponse->closeCursor(); 
+               
+             
+               ?>
+          </select >
+           
+        </div>
+
+
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+               
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="input-group mb-3">
+            <button type="submit" name="envoi" class="btn btn-primary btn-block" value="send">Connecter</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+      <div class="social-auth-links text-center mb-3">
+         
+      </div>
+      <!-- /.social-auth-links -->
+
+      <p class="mb-1">
+        <a href="passwordens.php">J'ai oublié mes paramètres de connexion</a>
+      </p><a class="button button-primary" href="loguer.php"><i class="fas fa-arrow-left text-muted">Retour</i></a>
+       
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="../../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../../dist/js/adminlte.min.js"></script>
+</body>
+</html>

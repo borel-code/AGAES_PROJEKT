@@ -1,0 +1,79 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Serveur: localhost
+-- Généré le : Mer 11 Septembre 2024 à 21:58
+-- Version du serveur: 5.1.36
+-- Version de PHP: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Base de données: `serveurbaseagaes4`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `proof`
+--
+
+CREATE TABLE IF NOT EXISTS `proof` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `matelev` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `anelev` varchar(15) CHARACTER SET utf8 NOT NULL,
+  `ancien` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `nouveau` varchar(255) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3927 ;
+
+--
+-- Contenu de la table `proof`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `proofdetail`
+--
+
+CREATE TABLE IF NOT EXISTS `proofdetail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idpaiem` int(255) NOT NULL,
+  `matelev` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `anelev` varchar(15) CHARACTER SET utf8 NOT NULL,
+  `ancien` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `nouveau` varchar(255) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `proofdetail`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `proofmodifdetail`
+--
+
+CREATE TABLE IF NOT EXISTS `proofmodifdetail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `idpaiem` int(255) NOT NULL,
+  `matelev` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `anelev` varchar(15) CHARACTER SET utf8 NOT NULL,
+  `ancien` varchar(500) CHARACTER SET utf8 NOT NULL,
+  `nouveau` varchar(500) CHARACTER SET utf8 NOT NULL,
+  `date` varchar(15) CHARACTER SET utf8 NOT NULL,
+  `heure` varchar(15) CHARACTER SET utf8 NOT NULL,
+  `idresp` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+--
+-- Contenu de la table `proofmodifdetail`
+--
+

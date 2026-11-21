@@ -1,0 +1,29 @@
+
+
+
+
+      
+$requis=Nbrevalpartrimcpse($idmat,$idcl,$trim); 
+
+$vh="SELECT *  FROM  notetrimestre WHERE anens='".$an."' AND idcl='".$idcl."' AND
+ trimestre='".$trim."'  ORDER BY note DESC" ;
+$reponseh = $bdda->query($vh);
+$i=0;  
+while ($donneesh = $reponseh->fetch() )
+{
+  
+   if($donneesh['matiere']==$idmat ){
+       $requisperso=NbrevalpartrimcpsePARELEV($idmat,$idcl,$trim,$donneesh['matricule']);
+       if($requis==$requisperso ){
+          $i++; 
+       }
+    }
+} 
+$reponseh->closeCursor(); 
+ return $i;
+
+
+
+
+ N       <TR><TD><center><H4>Philosophie</H4></center></TD><TD><center><B><H4>'.$d151.'</H4></B></center></TD> <TD><center><B><H4>'.$d15c.'</H4></B></center></TD><TD><center><B><H4>'.$d15mc.'</H4></B></center></TD><TD><center><B><H4>'.$d15rg.'</H4></B></center></TD><TD><center><B><H4>'.$d15mcl. '</H4></B></center></TD>
+ <TD><center><B><H4>'.$d15min.'</H4></B></center></TD><TD><center><B><H4>'.$d15max.'</H4></B></center></TD><TD><center><B><H4>'.$d15pct.'%</H4></B></center></TD><TD><center><B><H4>'.$d15app.'/  '.$d15ens.'</B></center></TD></TR>

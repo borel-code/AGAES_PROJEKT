@@ -1,0 +1,528 @@
+<?php
+ session_cache_limiter('private_no_expire,must-revalidate');session_start();
+ require 'connectC.php';  require '../inscripfunction.php'; require '../lesmenus.php';
+  require '../lesemploi.php';require '../listabrvtype.php'; 
+ require '../lesmenushoriz.php'; require '../lesmenushoriz2.php';
+ set_time_limit(2000);
+ 
+function effectif($an,$clas){
+	
+	$v="SELECT *  FROM eleve  WHERE anelev='".$an."' AND id_etab='0' ";
+	$reponse = $bdda->query($v);
+  $true=0;
+  while ($donnees = $reponse->fetch() )
+  {
+	 
+	 if( $donnees['niveauelev']==$clas ){
+		$true++;
+	  } 
+	  
+  } 
+  $reponse->closeCursor();
+   return $true;   
+}
+
+
+$trueadmin=idamin( $_SESSION['util'],$_SESSION['mtp']);
+if($trueadmin!=0 
+AND ($_SESSION['code']==50 OR $_SESSION['code']==1
+OR $_SESSION['code']==2 OR $_SESSION['code']==3
+OR $_SESSION['code']==5 OR $_SESSION['code']==7) ){ 
+  
+ 
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> </title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="../https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/adminlte.min.css">
+  
+  
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+         
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+         
+      </li>
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
+     <!-- Messages Dropdown Menu -->
+     <li class="nav-item dropdown">
+         
+         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+           <a href="#" class="dropdown-item">
+             <!-- Message Start -->
+              
+             <!-- Message End -->
+           </a>
+           <div class="dropdown-divider"></div>
+           <a href="#" class="dropdown-item">
+             <!-- Message Start -->
+              
+             <!-- Message End -->
+           </a>
+           <div class="dropdown-divider"></div>
+           <a href="#" class="dropdown-item">
+             <!-- Message Start -->
+  
+             <!-- Message End -->
+           </a>
+           <div class="dropdown-divider"></div>
+           <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+         </div>
+       </li>
+       <!-- Notifications Dropdown Menu -->
+  
+       <li class="nav-item">
+         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+           <i class="fas fa-expand-arrows-alt"></i>
+         </a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" data-widget="control-si" data-slide="true" href="#" role="button">
+           <i class="fas fa-th-large"></i>
+         </a>
+       </li>
+     </ul>
+   </nav>
+   <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <center>
+    <a href="#" class="brand-link">
+    <img src=" AGAES2.png" height=50px" width="200px" alt="profil" class="brand-image img-circle elevation-3" style="opacity: .8"></center> 
+      <span class="brand-text font-weight-light"> </span>
+    </a>  
+
+     <!-- Sidebar -->
+   <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <center>  </center>
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        
+      <center> <div class="info">
+          <a href="#" class="d-block"><?php echo $_SESSION['nom'];  ?>
+</br>** <?php echo $_SESSION['nomfonct'];  ?> **</a>
+        </div></center>
+      </div>
+
+       
+      <!-- Sidebar Menu -->
+      <?php if($_SESSION['code']==50){webmaster();}if($_SESSION['code']==4){economatcollege();} if($_SESSION['code']==1){fondatcollege();}if($_SESSION['code']==2 OR $_SESSION['code']==3){principalcollege();}if($_SESSION['code']==7){secretairecollege();}if($_SESSION['code']==5){survcollege();}if($_SESSION['code']==6){secteurcollege();}?>
+           <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+      </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">  <?php echo initialEtab();?></h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+            <h1 class="m-0">EMPLOI DE TEMPS </h1>&nbsp&nbsp&nbsp
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+          <table><tr> <td><form  method='POST' action='liremploi.php' name='paiem'>
+<button type='submit'  name='affchempltout'  class='btn btn-success' >Afficher l'emploi de temps  
+    
+</button>
+</form></td></tr></table>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <center> 
+           </center>
+           <?php if(isset($_POST['affchempl'])){ 
+               echo "  <img src='AGAES3.png' height='200px' width='1300px'><br>
+             
+               <img src='espace.png' height='100px' width='1000px'><br> <br>
+               <section class='content'>     <div class='container-fluid'>
+        <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+            <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+                 <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$_SESSION['anemploi']." 
+                 <br><br>CLASSE : ".classparid($_SESSION['clasemploi'],$_SESSION['anemploi'])." </br>EMPLOI DE TEMPS </b> </H5>
+                 </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+    <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                       
+    <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($_SESSION['clasemploi'],$_SESSION['anemploi']))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+  " ;  }
+
+ if(isset($_POST['send1'])){  
+    if($_POST['choix']=='1'){//ELEV GARCONS
+      echo " <section class='content'>     <div class='container-fluid'>
+      <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+          <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+               <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$an." 
+               <br><br>CLASSE : ".classparid($klas,$an)."<br> LISTE DES ELEVES GARCONS</b></H5>
+               </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+  <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                     
+  <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($klas,$an))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+" ; 
+    }
+
+    if( $_POST['choix']==2 ){//ELEV FILLES
+      echo " <section class='content'>     <div class='container-fluid'>
+      <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+          <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+               <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$an." 
+               <br><br>CLASSE : ".classparid($klas,$an)."<br> LISTE DES ELEVES FILLES</b></H5>
+               </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+  <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                     
+  <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($klas,$an))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+" ; 
+    }
+
+    if( $_POST['choix']==3 ){//ELEV ANCIENS
+      echo " <section class='content'>     <div class='container-fluid'>
+      <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+          <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+               <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$an." 
+               <br><br>CLASSE : ".classparid($klas,$an)."<br> LISTE DE TOUS LES ANCIENS ELEVES</b></H5>
+               </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+  <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                     
+  <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($klas,$an))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+" ; 
+    }
+
+    if( $_POST['choix']==4 ){//ELEV NOUVEAUX
+      echo " <section class='content'>     <div class='container-fluid'>
+      <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+          <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+               <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$an." 
+               <br><br>CLASSE : ".classparid($klas,$an)."<br> LISTE DE TOUS LES NOUVEAUX ELEVES</b></H5>
+               </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+  <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                     
+  <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($klas,$an))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+" ; 
+    }
+
+    if( $_POST['choix']==5 ){//ELEV NOUV FILLES
+      echo " <section class='content'>     <div class='container-fluid'>
+      <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+          <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+               <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$an." 
+               <br><br>CLASSE : ".classparid($klas,$an)."<br> LISTE DES NOUVELLES ELEVES FILLES</b></H5>
+               </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+  <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                     
+  <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($klas,$an))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+" ; 
+    }
+
+    if( $_POST['choix']==6 ){//ELEV ANCIENNES FIILES
+      echo " <section class='content'>     <div class='container-fluid'>
+      <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+          <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+               <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$an." 
+               <br><br>CLASSE : ".classparid($klas,$an)."<br> LISTE DES ANCIENNES ELEVES FILLES</b></H5>
+               </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+  <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                     
+  <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($klas,$an))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+" ; 
+    }
+
+    if( $_POST['choix']==7) {//ELEV NOUVEAUX GARCONS
+      echo " <section class='content'>     <div class='container-fluid'>
+      <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+          <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+               <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$an." 
+               <br><br>CLASSE : ".classparid($klas,$an)." <br>LISTE DES NOUVEAUX ELEVES GARCONS</b></H5>
+               </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+  <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                     
+  <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($klas,$an))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+" ; 
+    }
+
+    if( $_POST['choix']==8) {//ELEV ANCIENS GARCONS
+      echo " <section class='content'>     <div class='container-fluid'>
+      <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+          <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+               <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$an." 
+               <br><br>CLASSE : ".classparid($klas,$an)." <br>LISTE DES ANCIENS ELEVES GARCONS</b></H5>
+               </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+  <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                     
+  <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($klas,$an))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+" ; 
+    }
+
+    if( $_POST['choix']==9 ){//STATISTIQUES
+      echo " <section class='content'>     <div class='container-fluid'>
+      <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+          <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+               <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$an." 
+               <br><br>CLASSE : ".classparid($klas,$an)."<br> LES STATISTIQUES</b></H5>
+               </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+  <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                     
+  <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($klas,$an))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+" ; 
+    }
+
+    if( $_POST['choix']==10 ){//TOUS LES ELEVES
+      echo " <section class='content'>     <div class='container-fluid'>
+      <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+          <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+               <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$an." 
+               <br><br>CLASSE : ".classparid($klas,$an)." <br>LISTE DES ELEVES</b></H5>
+               </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+  <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                     
+  <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($klas,$an))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+" ; 
+    }
+
+  }
+  
+  ?>
+                
+
+
+
+
+    <!-- /.content -->  
+
+    
+        
+
+          <?php 
+  
+
+
+ if(isset($_POST['affchempl'])){//VENANT DE LISTCLASSE
+
+
+    
+echo " <table class='table table-bordered table-hover'> 
+<tr bgcolor='orange'><td><B> </B></td>"; 
+$reponse = $bdda->query("SELECT * FROM jour");
+while ($donnees = $reponse->fetch()){                            
+  $phrase =$donnees['id'] ; 
+$p='value='.$phrase;
+
+
+echo "<td><B>".$donnees['nom']."</B></td>" ; 
+  } 
+$reponse->closeCursor(); 
+
+echo"</tr> ";
+$reponse = $bdda->query("SELECT * FROM periode");
+while ($donnees = $reponse->fetch()){                            
+  $idperiode =$donnees['id'] ;$nomperiode =$donnees['nom'] ; 
+  echo "<tr><td><B>".$nomperiode."</B></td>" ;
+
+//parcours jour pour la periode
+  $reponses = $bdda->query("SELECT * FROM jour");
+  while ($donneess = $reponses->fetch()){                            
+    $phrase =$donneess['id'] ; 
+
+  $idmatdefaut1=matjourpecl($phrase,$idperiode ,$_SESSION['clasemploi'],$_SESSION['anemploi']);
+$matdefaut1=matparid($idmatdefaut1,$_SESSION['anemploi']);
+$teach1=namelehrer($idmatdefaut1,$_SESSION['clasemploi'],$_SESSION['anemploi']);
+
+echo "<td><B>".$matdefaut1."</Br><small>".$teach1."</small></B></td>" ;
+} 
+$reponses->closeCursor();  
+//finparcours jour
+
+echo "</tr>" ;
+
+} 
+$reponse->closeCursor(); 
+
+ 
+
+          
+  }
+
+ if(isset($_POST['affchempltout'])){  
+    $rep  = $bdda->query("SELECT * FROM classe WHERE sup='0' AND anens='".$_SESSION['anemploi']."'");
+    while ($don  = $rep ->fetch()){ 
+        $idclas =$don['id'] ;
+        
+
+        echo "
+        <img src='AGAES3.png' height='200px' width='1300px'><br>
+             
+            <img src='espace.png' height='100px' width='1000px'><br> <br>
+        <section class='content'>     <div class='container-fluid'>
+        <div class='row'>    <!-- left column -->  <div class='col-md-6'>
+            <!-- general form elements -->      <div class='card card-primary'>   <div class='card-body'>
+                 <div class='form-group'> <H5><b>ANNEE SCOLAIRE : ".$_SESSION['anemploi']." 
+                 <br><br>CLASSE : ".classparid($idclas,$_SESSION['anemploi'])." </br>EMPLOI DE TEMPS </b> </H5>
+                 </div> </div>     <!-- /.card-body --> </div>  <!-- /.card --> </div>  <!-- right column -->
+    <div class='col-md-6'> <!-- Form Element sizes --> <div class='card card-success'> <div class='card-body'> <div class='form-group'>
+                       
+    <H5><b>ENSEIGNEMENT SECONDAIRE<br>TYPE D'ENSEIGNEMENT : ".ABRVTYPENS(TYPENS($idclas,$_SESSION['anemploi']))."</b></H5>
+</div> <!-- /.card-body --> </div> <!-- /.card --> </div> <!-- /.card -->  </div> <!--/.col (right) --> </div> <!-- /.row --> </div><!-- /.container-fluid -->  </section>
+
+  " ; 
+
+
+
+
+
+echo " <table class='table table-bordered table-hover'> 
+<tr bgcolor='orange'><td><B> </B></td>"; 
+$reponse = $bdda->query("SELECT * FROM jour");
+while ($donnees = $reponse->fetch()){                            
+  $phrase =$donnees['id'] ; 
+$p='value='.$phrase;
+
+
+echo "<td><B>".$donnees['nom']."</B></td>" ; 
+  } 
+$reponse->closeCursor(); 
+
+echo"</tr> ";
+$reponse = $bdda->query("SELECT * FROM periode");
+while ($donnees = $reponse->fetch()){                            
+  $idperiode =$donnees['id'] ;$nomperiode =$donnees['nom'] ; 
+  echo "<tr><td><B>".$nomperiode."</B></td>" ;
+
+//parcours jour pour la periode
+  $reponses = $bdda->query("SELECT * FROM jour");
+  while ($donneess = $reponses->fetch()){                            
+    $phrase =$donneess['id'] ; 
+
+  $idmatdefaut1=matjourpecl($phrase,$idperiode ,$idclas,$_SESSION['anemploi']);
+$matdefaut1=matparid($idmatdefaut1,$_SESSION['anemploi']);
+$teach1=namelehrer($idmatdefaut1,$idclas,$_SESSION['anemploi']);
+
+echo "<td><B>".$matdefaut1."</Br><small>".$teach1."</small></B></td>" ;
+} 
+$reponses->closeCursor();  
+//finparcours jour
+
+echo "</tr>" ;
+
+} 
+$reponse->closeCursor(); 
+
+
+echo "</table> </Br><img src='espace.png' height='100px' width='1000px'><br> " ;
+    } 
+    $rep ->closeCursor(); 
+
+  }
+  
+  ?>
+ </Br></Br>
+  
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <strong>   </strong>
+    
+    <div class="float-right d-none d-sm-inline-block">
+      <b> </b> 
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="../plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+ 
+<!-- Page specific script -->
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
+</body>
+</html>
+<?php }   ?>

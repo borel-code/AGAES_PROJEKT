@@ -1,0 +1,43 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Serveur: localhost
+-- Généré le : Mar 14 Février 2023 à 11:34
+-- Version du serveur: 5.1.36
+-- Version de PHP: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Base de données: `bdmbekfonligne`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `sujet`
+--
+
+CREATE TABLE IF NOT EXISTS `sujet` (
+  `idsuj` int(11) NOT NULL AUTO_INCREMENT,
+  `idmat` int(11) NOT NULL,
+  `idcl` int(11) NOT NULL,
+  `idtrim` int(11) NOT NULL,
+  `ideva` int(11) NOT NULL,
+  `nom` varchar(60) NOT NULL,
+  `extension` varchar(10) NOT NULL,
+  `anens` varchar(10) NOT NULL,
+  `typeresp` int(11) NOT NULL,
+  `user` varchar(30) NOT NULL,
+  `mtp` varchar(30) NOT NULL,
+  `datesuj` varchar(10) NOT NULL,
+  `heuresuj` varchar(10) NOT NULL,
+  `sup` int(11) NOT NULL,
+  PRIMARY KEY (`idsuj`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Contenu de la table `sujet`
+--
+
